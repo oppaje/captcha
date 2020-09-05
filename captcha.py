@@ -1,6 +1,7 @@
 from harvester import Harvester, fetch
 from threading import Thread
 import logging
+import pathlib
 
 print("""			Captcha Harvester - Solve Captchas Without Using a Captcha Service
 					     API Made By: NoahCardoza
@@ -14,12 +15,17 @@ captchaType = input('''Select Captcha Type:
 
 domain = input("Enter domain (follow this format: example.com): ")
 sitekey = input("Enter sitekey: ")
+extension = None
 
 logging.getLogger('harvester').setLevel(logging.CRITICAL)
 
 harvester = Harvester()
 
 if captchaType == '1':
+    enable_extension = input('Do you want to enable the Buster chrome extesnion? [y/n]: ')
+    if enable_extension == 'y' or enable_extension == 'Y':
+        extension = fr"{str(pathlib.Path().absolute())}\buster-chrome-extension"
+        
     tokens = harvester.intercept_recaptcha_v2(
         domain=domain,
         sitekey=sitekey)
@@ -40,13 +46,7 @@ else:
 
 server_thread = Thread(target=harvester.serve, daemon=True)
 server_thread.start()
-harvester.launch_browser()
+harvester.launch_browser(extensions=extension)
 
-try:
-    while True:
-        pass
-        #token = tokens.get()
-        #print('we just recived a token:', token)
-        #token = fetch.token(domain)
-except KeyboardInterrupt:
+while True:
     pass
