@@ -1,3 +1,6 @@
+![captcha](https://image.prntscr.com/image/tVQxZGTgQBeHoCPqDUgq0w.png)
+
+
 # What is this?
 A simple script I wrote using CaptchaHarvester before converting it to an exe file so my friends who don't know python could use it!
 
