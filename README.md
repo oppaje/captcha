@@ -1,7 +1,7 @@
 # What is this?
 A simple script I wrote using CaptchaHarvester before converting it to an exe file so my friends who don't know python could use it!
 
-# How to convert a CaptchaHarvester script to a .exe file
+# How to convert a CaptchaHarvester script to a .exe file?
 First, you need to create a spec file using this command ```pyi-makespec --onefile yourfile.py```
 Then open the spec file created, and add the path of the following things inside ```datas=[]``` 
 ```server.crt
