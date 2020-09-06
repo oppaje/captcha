@@ -24,7 +24,7 @@ harvester = Harvester()
 if captchaType == '1':
     enable_extension = input('Do you want to enable the Buster chrome extesnion? [y/n]: ')
     if enable_extension == 'y' or enable_extension == 'Y':
-        extension = fr"{str(pathlib.Path().absolute())}\buster-chrome-extension"
+        extension = fr"{str(pathlib.Path().absolute())}\Buster-chrome-extension"
         
     tokens = harvester.intercept_recaptcha_v2(
         domain=domain,
